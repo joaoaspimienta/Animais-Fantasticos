@@ -1,14 +1,12 @@
-const element = document.querySelector('h1')
+//Pega o atributo do elemento selecionado
 
-element.addEventListener('click', function(event){
-    console.log(event)
-})
+var itensMenu = document.querySelectorAll('.menu a');
 
-var primeiraUl = document.querySelector('ul')
+itensMenu.forEach((item) => {
+    item.classList.add('Raposa');
+});
 
-console.log(primeiraUl.innerText)
 
-var todasImagens = document.querySelectorAll('img[src^="img/imagem"]')
 
-console.log(todasImagens)
+
 
