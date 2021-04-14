@@ -1,12 +1,3 @@
-//Pega o atributo do elemento selecionado
+const paragrafos = document.querySelectorAll ('p')
 
-var itensMenu = document.querySelectorAll('.menu a');
-
-itensMenu.forEach((item) => {
-    item.classList.add('Raposa');
-});
-
-
-
-
-
+paragrafos.forEach((item => console.log(item.innerText)))
