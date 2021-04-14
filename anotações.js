@@ -50,3 +50,14 @@ itensMenu.forEach((item) => {
 const zebraClick = document.querySelectorAll('.imagemZebra')
 
 zebraClick.forEach((item) => item.addEventListener ('click', () => item.classList.toggle('gigante')))
+
+//Adiciona apenas na terceira zebra a classe gigante
+
+zebraClick[2].classList.add('gigante')
+
+//Como alterar um conteudo com js no html
+
+const link = document.querySelector('a[href^="http"]');
+link.setAttribute('href', 'https://www.google.com');
+
+console.log(link)
