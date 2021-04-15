@@ -61,3 +61,46 @@ const link = document.querySelector('a[href^="http"]');
 link.setAttribute('href', 'https://www.google.com');
 
 console.log(link)
+
+
+//Seleciona imagens e inverte a cor no click
+const imgInvert = document.querySelectorAll('img')
+
+imgInvert.forEach((item) => item.addEventListener('click', (() => item.classList.toggle('invertido'))))
+
+//Distancia do topo
+
+const raposa = document.querySelector('img')
+
+console.log(raposa.offsetTop); //.offsetHeight para ver altura do objeto
+
+
+// Verifica se a janela tem no maximo 400px e retorna true ou false
+const query = window.matchMedia('(max-width: 400px)');
+
+if(query.matches) {
+    console.log('ta batendo')
+} else {
+    console.log('n ta batendo')
+}
+
+// Seleciona os links e verifica se altura/largura sao maiores que 48px
+
+var links = document.querySelectorAll('a')
+
+links.forEach((item) => {
+    const altura = item.offsetHeight;
+    const largura = item.offsetWidth;
+    if(altura >= 48 && largura >= 48) {
+        console.log('opcao 1')
+    } else { console.log('opcao 2')
+
+    }
+}
+)
+
+//Verifica tamanho do browser e adiciona uma classe pra confirmação
+if (window.matchMedia('(max-width: 8800px)').matches){
+
+    const menu = document.querySelector('.menu')
+    menu.classList.add('menu-mobile')}

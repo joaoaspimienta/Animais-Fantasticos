@@ -33,7 +33,7 @@ body {
 .menu li a {
     display: block;
     margin-right: 10px;
-    padding: 10px;
+    padding: 15px 10px;
     color: #222;
     text-decoration: none;
     font-family: 'IBM Plex Mono', monospace;
@@ -208,4 +208,8 @@ body {
     .copy {
         margin-bottom: 0px;
     }
+}
+
+.invertido {
+    filter: invert(1);
 }
