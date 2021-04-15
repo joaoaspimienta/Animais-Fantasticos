@@ -46,14 +46,17 @@ itensMenu.forEach((item) => {
     item.classList.add('Raposa');
 });
 
+
 //Seleciona imagens de zebra, e ao click, adiciona a classe "gigante"
 const zebraClick = document.querySelectorAll('.imagemZebra')
 
 zebraClick.forEach((item) => item.addEventListener ('click', () => item.classList.toggle('gigante')))
 
+
 //Adiciona apenas na terceira zebra a classe gigante
 
 zebraClick[2].classList.add('gigante')
+
 
 //Como alterar um conteudo com js no html
 
@@ -68,11 +71,11 @@ const imgInvert = document.querySelectorAll('img')
 
 imgInvert.forEach((item) => item.addEventListener('click', (() => item.classList.toggle('invertido'))))
 
-//Distancia do topo
+//Distancia do topo (.offsetHeight para ver altura do objeto)
 
 const raposa = document.querySelector('img')
 
-console.log(raposa.offsetTop); //.offsetHeight para ver altura do objeto
+console.log(raposa.offsetTop); 
 
 
 // Verifica se a janela tem no maximo 400px e retorna true ou false
@@ -104,3 +107,83 @@ if (window.matchMedia('(max-width: 8800px)').matches){
 
     const menu = document.querySelector('.menu')
     menu.classList.add('menu-mobile')}
+
+
+
+//Mostra mensagem ao teclar algo, console.log ao scrollar
+function teclaPress (event) {
+    if(event.key==='a') {
+        alert('a')
+    } else {
+        alert ('outra coisa')
+    }
+}
+
+window.addEventListener('keydown', teclaPress)
+
+window.addEventListener('scroll', () => console.log('scroll'))
+
+
+//Detecta todos elementos do site e remove ao click
+
+const todosElementos = document.querySelectorAll('body *')
+
+function removeElemento(event) {
+    event.currentTarget.remove();
+}
+
+todosElementos.forEach((event) => {
+    event.addEventListener('click', removeElemento)
+})
+
+
+//Seleciona todo o site e ao clicar no T, adiciona a classe textoGrande
+const siteTodo = document.querySelector('html');
+
+function clicouT(event){
+    if(event.key==="t"){
+        siteTodo.classList.toggle('textoGrande')
+    }
+}
+
+window.addEventListener('keydown', clicouT)
+
+//Seleciona h1 do site e troca o texto
+
+const titulo = document.querySelector('h1')
+
+function trocaTexto() {
+    titulo.innerText = 'Zebra é chata'
+}
+
+titulo.addEventListener('click', trocaTexto)
+
+
+//Pega o titulo e joga dentro da lista no ultimo elemento
+const animais = document.querySelector('.animais')
+
+const titulo = animais.querySelector('.titulo')
+
+const lista = document.querySelector('.animais-lista')
+
+lista.appendChild(titulo)
+
+
+//Cria um novo elemento e posiciona no site
+const mapa = document.querySelector('.mapa')
+
+const novoh1 = document.createElement('h1');
+
+novoh1.innerText = 'Novo Título'
+novoh1.classList.add('titulo')
+
+mapa.appendChild(novoh1)
+
+
+//Clona elementos na pagina
+const h1 = document.querySelector('h1')
+const faq = document.querySelector('.faq')
+
+const cloneH1 = h1.cloneNode(true)
+
+faq.appendChild(cloneH1)

@@ -213,3 +213,7 @@ body {
 .invertido {
     filter: invert(1);
 }
+
+.textoGrande {
+    font-size: 200%;
+}
