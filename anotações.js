@@ -148,7 +148,7 @@ function clicouT(event){
 
 window.addEventListener('keydown', clicouT)
 
-//Seleciona h1 do site e troca o texto
+//Seleciona h1 do site e troca o texto ao clique
 
 const titulo = document.querySelector('h1')
 
@@ -159,17 +159,7 @@ function trocaTexto() {
 titulo.addEventListener('click', trocaTexto)
 
 
-//Pega o titulo e joga dentro da lista no ultimo elemento
-const animais = document.querySelector('.animais')
-
-const titulo = animais.querySelector('.titulo')
-
-const lista = document.querySelector('.animais-lista')
-
-lista.appendChild(titulo)
-
-
-//Cria um novo elemento e posiciona no site
+//Cria um novo elemento, troca o texto, add uma classe e posiciona no site
 const mapa = document.querySelector('.mapa')
 
 const novoh1 = document.createElement('h1');
@@ -180,9 +170,9 @@ novoh1.classList.add('titulo')
 mapa.appendChild(novoh1)
 
 
-//Clona elementos na pagina
-const h1 = document.querySelector('h1')
+//Clona elementos e adiciona na pagina
 const faq = document.querySelector('.faq')
+const h1 = document.querySelector('h1')
 
 const cloneH1 = h1.cloneNode(true)
 
