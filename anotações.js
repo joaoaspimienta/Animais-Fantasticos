@@ -177,3 +177,26 @@ const h1 = document.querySelector('h1')
 const cloneH1 = h1.cloneNode(true)
 
 faq.appendChild(cloneH1)
+
+
+//Seleciona as classes da lista de imagens e do container das sections de texto dos animais, e então se as classes existirem, ao clicar nos itens da lista de imagens, executa a função activeTab, que remove todas as classes de ativo e então adiciona a classe ativo no elemento clicado
+
+const tabMenu = document.querySelectorAll('.js-tabmenu li');
+const tabContent = document.querySelectorAll('.js-tabcontent section');
+
+if(tabMenu.length && tabContent.length){
+    tabContent[0].classList.add('ativo')
+
+    tabMenu.forEach((itemMenu, index) => {
+        itemMenu.addEventListener('click', () => {
+            activeTab(index);
+        })
+    });
+
+    function activeTab(index) {
+        tabContent.forEach((section) => {
+            section.classList.remove('ativo');
+        });
+        tabContent[index].classList.add('ativo');
+    }    
+}
