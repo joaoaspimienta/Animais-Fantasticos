@@ -200,3 +200,26 @@ if(tabMenu.length && tabContent.length){
         tabContent[index].classList.add('ativo');
     }    
 }
+
+
+//Seleciona todos os DTs, adiciona classe ativo ao dt e vizinho (dl) e ao clique, toggle classe ativa no dt e vizinho 
+function initAccordion() {
+    const accordionList = document.querySelectorAll('.js-accordion dt');
+    const activeClass = 'ativo';
+
+    if(accordionList.length){
+    accordionList[0].classList.add(activeClass)
+    accordionList[0].nextElementSibling.classList.add(activeClass)
+
+
+    function activeAccordion() {
+        this.nextElementSibling.classList.toggle(activeClass)
+        this.classList.toggle(activeClass);
+    }
+
+    accordionList.forEach((item) => {
+        item.addEventListener('click', activeAccordion);
+    })
+  }
+}
+initAccordion();
