@@ -223,3 +223,64 @@ function initAccordion() {
   }
 }
 initAccordion();
+
+
+//Maneira 1 (pior) de criar um scroll suave pro elemento do nav do site ao clique
+
+const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]')
+
+function scrollToSection(event) {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    const section = document.querySelector(href);
+    const topo = section.offsetTop;
+
+    window.scrollTo({
+        top: topo,
+        behavior: 'smooth',
+});
+}
+
+linksInternos.forEach((link) => {
+    link.addEventListener('click', scrollToSection)
+})
+
+//Maneira 2 (melhor) de criar um scroll suave pro elemento doo nav do site ao clique
+
+const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]')
+
+function scrollToSection(event) {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    const section = document.querySelector(href);
+
+    section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+    });
+}
+
+linksInternos.forEach((link) => {
+    link.addEventListener('click', scrollToSection)
+})
+
+
+//Seleciona sections, pega a posição referente ao topo de cada section e se essa posição for menor que 0.6 da tela, adiciona a classe ativo (que faz um efeito de opacidade e transição pra tela, o mesmo acontece ao contrario ao subir)
+const sections = document.querySelectorAll('.js-scroll');
+const windowMetade = window.innerHeight * 0.6;
+
+
+function animaScroll(){
+    sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const isSectionVisible = (sectionTop - windowMetade) < 0; 
+        if(isSectionVisible)
+            section.classList.add('ativo');
+        else
+            section.classList.remove('ativo');
+    })
+}
+
+animaScroll();
+
+window.addEventListener('scroll', animaScroll);
