@@ -266,6 +266,7 @@ linksInternos.forEach((link) => {
 
 
 //Seleciona sections, pega a posição referente ao topo de cada section e se essa posição for menor que 0.6 da tela, adiciona a classe ativo (que faz um efeito de opacidade e transição pra tela, o mesmo acontece ao contrario ao subir)
+
 const sections = document.querySelectorAll('.js-scroll');
 const windowMetade = window.innerHeight * 0.6;
 
@@ -284,3 +285,21 @@ function animaScroll(){
 animaScroll();
 
 window.addEventListener('scroll', animaScroll);
+
+
+//Usando objeto construtor pra nao precisar ficar repetindo querySelector
+
+function Dom(seletor) {
+    this.element = function(){
+        return document.querySelector(seletor)
+    }
+    this.ativar = function(classe) {
+        this.element().classList.add(classe)
+    }
+}
+
+const li = new Dom('li')
+const ul = new Dom('ul')
+
+const lastLi = new Dom('li:last-child')
+lastLi.ativar();
