@@ -8,16 +8,23 @@ const honda = new Carro('honda', 3000)
 const fiat  = new Carro('fiat', 4000)
 
 //Cria função construtora pessoa (que possui um metodo dentro) e cria novos objetos
-function Pessoa(nome, idade) {
+function RpgCharacter(nome, nivel, classe){
     this.nome = nome;
-    this.idade = idade;
-    this.andar = function andar(){
-        console.log(this.nome + ' andou')
+    this.nivel = nivel;
+    this.classe = classe;
+    this.textoRpg = function(){
+      console.log(this.nome + ' está no nível ' + this.nivel + ' e é da classe ' + this.classe)
     }
-}
-
-const joao = new Pessoa('João', 20)
-const maria = new Pessoa('Maria', 15)
+  }
+  
+  const joao = new RpgCharacter('João', 20, 'ladino')
+  const frei = new RpgCharacter('Frei', 10, 'trickster')
+  
+  console.log(joao.nome)
+  console.log(joao.nivel)
+  console.log(joao.classe)
+  joao.textoRpg()
+  frei.textoRpg()
 
 //Função construtora que substitui querySelector no codigo inteiro
 function Dom(seletor) {
@@ -36,20 +43,21 @@ const lastLi = new Dom('li:last-child')
 lastLi.ativar();
 
 //Função construtora que pode substituir querySelectorAll no codigo inteiro
-function Dom(seletor){ 
-    const elementList = document.querySelectorAll(seletor)
-    this.elements = elementList
-    this.addClass = function(classe){
-        elementList.forEach((element) => {
-            element.classList.add(classe)
-        })
+function Seletor(itens){
+    const selecionados = document.querySelectorAll(itens)
+    
+    this.addClasse = function(classe){
+      selecionados.forEach((item)=>{
+        item.classList.add(classe)
+      })
     }
-    this.removeClass = function(classe){
-        elementList.forEach((element) => {
-            element.classList.remove(classe)
-        })
+    this.removeClasse = function(classe){
+      selecionados.forEach((item)=>{
+        item.classList.remove(classe)
+      })
     }
-}
-
-const listaItens = new Dom('li')
-listaItens.addClass('ativar') 
+  }
+  
+  const slaMano = new Seletor('li')
+  slaMano.addClasse('ativo')
+  slaMano.removeClasse('ativo')
