@@ -51,13 +51,9 @@ function Seletor(itens){
         item.classList.add(classe)
       })
     }
-    this.removeClasse = function(classe){
-      selecionados.forEach((item)=>{
-        item.classList.remove(classe)
-      })
-    }
   }
   
   const slaMano = new Seletor('li')
   slaMano.addClasse('ativo')
   slaMano.removeClasse('ativo')
+
