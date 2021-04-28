@@ -78,7 +78,7 @@ var transporte1 = ['barco', 'aviao']
 var transporte2 = ['carro', 'moto']
 
 transporte1.concat(transporte2, 'teste', 'oi')
-[].concat(transporte1, transporte2)
+transportes.concat(transporte1, transporte2)
 
 
 const linguagens = ['html', 'css', 'js', 'php', 'python']
@@ -105,3 +105,27 @@ arrayRandom.includes('joana') //verifica se o array possui item e retorna true o
 arrayRandom.indexOf('joana') //verifica se o array possui item e retorna o index do primeiro item encontrado
 arrayRandom.lastIndexOf('joana') //verifica se o array possui item e retorna o index do utlimo item encontrado
 arrayRandom = arrayRandom.split('h1').join('h2') //troca os h1 por h2 por algum motivo
+
+
+
+/*Arrays e iterações*/
+
+//Pra cada parametro, imprime no console
+carros = ['ford', 'fusca', 'fodas']
+
+carros.forEach(function(item, index, array){
+    console.log(item, index, array)
+})
+
+
+//Sla
+carros = ['ford', 'fusca', 'fodas']
+
+carros.forEach(function(item, index){
+    carros[index] = 'nsei'
+    console.log(carros)
+})
+
+console.log(carros)
+
+
