@@ -118,7 +118,7 @@ carros.forEach(function(item, index, array){
 })
 
 
-//Sla
+//Troca os itens da array por nsei
 carros = ['ford', 'fusca', 'fodas']
 
 carros.forEach(function(item, index){
@@ -129,3 +129,39 @@ carros.forEach(function(item, index){
 console.log(carros)
 
 
+//prototipo do bot da roleta :kehehehe:
+const curtidores = [
+  {
+    nome: 'Code',
+    ID: 1,
+  },
+  {
+    nome: 'Zebra',
+    ID: 2,
+  },
+  {
+    nome: 'Carvalho',
+    ID: 3,
+  },
+  
+]
+
+function roletaKick(){
+  var sorteado = curtidores[Math.floor(Math.random()*((3-0)))].nome
+  console.log(sorteado)
+}
+roletaKick()
+
+
+//Esse lixo fdp do caralho do reduce
+
+const kicks = [
+  {usuario: 'Kazuma', kicks: 999 },
+  {usuario: 'Zebra', kicks: 550 },
+  {usuario: 'Hondinha', kicks: 250 },
+  {usuario: 'Carvalho', kicks: 150 },
+  {usuario: 'Eddie', kicks: 2 },
+]
+
+const kicksTotais = kicks.reduce((acumulador, elementoAtual) => acumulador + elementoAtual.kicks, 0)
+console.log(kicksTotais)
