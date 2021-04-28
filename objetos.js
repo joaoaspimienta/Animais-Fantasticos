@@ -57,3 +57,38 @@ function Seletor(itens){
   slaMano.addClasse('ativo')
   slaMano.removeClasse('ativo')
 
+
+//Como selecionar um numero aleatorio entre 90 e 100
+var fodase = Math.floor(Math.random() * (100 - 90 + 1) + 90)
+console.log(fodase)
+
+
+//Preenche a array com a string banana desde o inicio por 3 espaços
+console.log(['item1', 'item2', 'item3', 'item4'].fill('banana', 0, 3))
+
+
+//Duas formas de se concatenar itens de arrays diferentes em uma só
+var transporte1 = ['barco', 'aviao']
+var transporte2 = ['carro', 'moto']
+
+transporte1.concat(transporte2, 'teste', 'oi')
+[].concat(transporte1, transporte2)
+
+
+//Verifica se o array possui o item e retorna true ou false
+[].includes(item)
+//Verifica se o array possui o item e retorna o index do primeiro item encontrado, tambem tem o [].lastIndexOf(item) que pega o ultimo item encontrado 
+[]indexOf(item)
+
+
+//Une os itens do array linguagens em uma string' e adiciona espaços entre eles
+linguagens.join(' ')
+
+
+//Cria um clone do array 
+const linguagens = ['html', 'css', 'js', 'php', 'python']
+const cloneLinguagens = linguagens.splice()
+
+//
+linguagens.slice(3) //['php', 'python']
+linguagens.slice(1, 4) //['css', 'js', 'php']
