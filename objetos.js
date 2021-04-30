@@ -165,3 +165,121 @@ const kicks = [
 
 const kicksTotais = kicks.reduce((acumulador, elementoAtual) => acumulador + elementoAtual.kicks, 0)
 console.log(kicksTotais)
+
+//Reduce, só que ao contrario
+arrayRandom.reduceRight()
+
+
+//Verifica se o item mencionado na função anonima existe no array e retorna true ou false
+const usuarios = ['code', 'zebra', 'carvalho']
+
+const foiKickado = usuarios.some((item) => {
+    return item === 'zebra';
+})
+
+console.log(foiKickado)
+
+
+//Verifica se TODOS os itens mencionados na função anonima existem no array e retorna true ou false
+const usuarios = ['code', 'zebra', 'carvalho']
+
+const foiKickado = usuarios.every((item) => {
+    return item === 'zebra';
+})
+
+console.log(foiKickado)
+
+//2º exemplo, verifica se a condição é verdadeira para todos os itens no array e retorna true ou false
+const numeros = [10, 5, 8]
+const maiorQue3 = numeros.every(function(item) {
+  return item > 3;
+})
+console.log(maiorQue3)
+
+
+//Encontra o index do objeto buscado na array
+const usuarios = ['code', 'zebra', 'carvalho']
+
+const buscaKick = usuarios.findIndex((item) => {
+    return item === 'zebra';
+})
+
+console.log(buscaKick)
+
+
+//Encontra o primeiro valor da array cuja condição seja verdadeira
+const numeros = [4, 6, 22, 100]
+const buscaMaior30 = numeros.find(item => item > 30)
+console.log(buscaMaior30)
+
+//2º exemplo
+const usuarios = ['code', 'zebra', 'carvalho']
+const nomeGrande = usuarios.find(item => item.length > 5)
+console.log(nomeGrande)
+
+//Filter, tipo o find, mas cria um array com todos os seus resultados verdadeiros 
+const usuarios = ['code', 'zebra', 'carvalho']
+const nomeGrande = usuarios.filter(item => item.length > 2)
+console.log(nomeGrande)
+
+
+//Cria um array com objetos que contem a classe selecionada
+const cursos = document.querySelectorAll('.curso')
+const arrayCursos = Array.from(cursos);
+
+const objetosCurso = arrayCursos.map((item) => {
+  const titulo = item.querySelector('h1').innerText;
+  const descricao = item.querySelector('p').innerText;
+  const aulas = item.querySelector('.aulas').innerText;
+  const horas = item.querySelector('.horas').innerText;
+  return {
+    titulo: titulo,
+    descricao: descricao,
+    aulas: aulas,
+    horas: horas,
+  }
+})
+
+
+//Desafio do krl
+
+const compras = [
+  {
+    compra: 'banana',
+    preco: 'R$ 10,00',
+  },
+  {
+    compra: 'maca',
+    preco: 'R$ 20,00',
+  },
+  {
+    compra: 'abacaxi',
+    preco: 'R$ 30,00',
+  },
+  {
+    compra: 'melancia',
+    preco: 'R$ 40,00',
+  }
+]
+
+const precos = compras.map((item) => {
+  return item.preco
+})
+
+const precosCorretos = precos.map((item) => {
+  return +item.replace('R$ ', '').replace(',', '.')
+})
+
+const somaTotal = precosCorretos.reduce((acumulador, elementoAtual) => {return acumulador + elementoAtual}, 0)
+
+console.log(precosCorretos)
+console.log(somaTotal)
+
+
+
+
+var numeros = [1, 2, 3, 4, 5, 6];
+var total = numeros.reduce(function(total, numero){
+  return total + numero;
+}, 0);
+console.log(total);
