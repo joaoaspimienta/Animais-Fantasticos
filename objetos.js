@@ -276,10 +276,24 @@ console.log(precosCorretos)
 console.log(somaTotal)
 
 
-
-
+//Exemplo 3 de Reduce
 var numeros = [1, 2, 3, 4, 5, 6];
 var total = numeros.reduce(function(total, numero){
   return total + numero;
 }, 0);
 console.log(total);
+
+
+/*Funções*/
+
+
+//Exemplo random de função só de zoas
+function otavioOpressor(quantiaOprimidosOntem, quantiaOprimidosHoje){
+  console.log(`ontem e hoje ${quantiaOprimidosOntem + quantiaOprimidosHoje} foram oprimidos`)
+}
+
+otavioOpressor(25, 50)
+
+arrayRandom.length //retorna quantos parametros tem na função
+
+
