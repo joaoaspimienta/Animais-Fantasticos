@@ -297,3 +297,16 @@ otavioOpressor(25, 50)
 arrayRandom.length //retorna quantos parametros tem na função
 
 
+//Call
+const carro = {
+  marca: 'ford',
+  ano: 2020,
+}
+
+function descricaoCarro() {
+  console.log(this.marca + ' ' + this.ano)
+}
+
+descricaoCarro() //undefined undefined
+descricaoCarro() //undefined undefined
+descricaoCarro.call(carro) // Ford 2020
