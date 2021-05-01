@@ -310,3 +310,10 @@ function descricaoCarro() {
 descricaoCarro() //undefined undefined
 descricaoCarro() //undefined undefined
 descricaoCarro.call(carro) // Ford 2020
+descricaoCarro.call({marca: 'Honda', ano: 2015}) // Honda 2015
+
+//Call 2
+function descricaoCarro(velocidade) {
+  console.log(this.marca + ' ' + this.ano + velocidade)
+}
+descricaoCarro.call({marca: 'Honda', ano: 2015}, 100) // Honda 2015 100
