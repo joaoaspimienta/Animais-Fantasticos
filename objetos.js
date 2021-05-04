@@ -365,3 +365,27 @@ const imc180 = imc.bind(null, 1.80)
 
 imc(1.80, 70) // 21.6
 imc180(70) //21.6
+
+
+//Somar total de caracteres em paragrafos
+
+const paragrafos = document.querySelectorAll('p')
+
+const totalCaracteres = Array.prototype.reduce.call(paragrafos, (acumulador, item) => {
+  return acumulador + item.innerText.length;
+}, 0)
+
+console.log(totalCaracteres)
+console.log(paragrafos)
+
+
+//Função criadora de conteudo
+
+function criarElemento(tag, classe, conteudo) {
+  const elemento = document.createElement(tag);
+  classe ? elemento.classList.add(classe) : null;
+  conteudo ? elemento.innerHTML = conteudo : null;
+  return elemento;
+}
+
+console.log(criarElemento('li', 'azul', 'Esse é o conteudo'))
