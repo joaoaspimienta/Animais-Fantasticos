@@ -430,15 +430,10 @@ console.log(veloster)
 
 let carro = {
   rodas: 4,
-  tipo: 'automovel',
 }
 
 let veloster = {
   portas: 3,
-  motor: 1.6,
-  quantiaCavalos: 128,
-  compradores: 'playboys putos',
-  caracteristica: 'MERDA DE CARRO!'
 }
 
 veloster = {...veloster, carro}
@@ -446,4 +441,30 @@ veloster = {...veloster, carro}
 console.log(veloster)
 
 veloster = { ...veloster, portas: 4, carro } //altera propriedades existentes
+
+
+//Object.is(item1, item2) - verifica se itens sao OS MESMOS (não é possuirem o mesmo conteudo) e retorna true ou false
+
+const carros1 = ['Uno de firma']
+const carros2 = ['Uno de firma']
+
+Object.is(carros1, carros2); //False
+
+const carros1 = ['Uno de firma']
+const carros2 = carros1
+
+Object.is(carros1, carros2); //True
+
+Object.freeze() //impede qualquer mudança nas propriedades
+Object.seal() //previne a adição de novas propriedades e impede que deletem as atuais
+Object.preventExtensions() //previne a adição de novas propriedades
+
+//toString() - converte conteudo para string, não converte conteudo de objetos em strings
+const numero = 25;
+numero.toString() //'25'
+
+//Como verificar tipos de objetos
+Object.prototype.toString.call(carros1) //object array
+Object.prototype.toString.call(carro) //object object
+Object.prototype.toString.call(criarElemento) //object function 
 
