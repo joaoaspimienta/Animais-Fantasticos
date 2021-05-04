@@ -468,3 +468,20 @@ Object.prototype.toString.call(carros1) //object array
 Object.prototype.toString.call(carro) //object object
 Object.prototype.toString.call(criarElemento) //object function 
 
+
+//Se criar um objeto com defineProperties, nao é possível alterar o valor de dentro dele
+
+const quadrado = {}
+Object.defineProperties(quadrado, {
+  lados: {
+    value: 4,
+    enumerable: true,
+  }
+})
+
+quadrado.lados = 10 //não funciona, rs, lados continua sendo 4
+
+
+//Lista todas as propriedades de algo
+console.log(Object.getOwnPropertyNames(String.prototype))
+console.log(Object.getOwnPropertyNames(Array.prototype))
