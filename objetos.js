@@ -388,7 +388,10 @@ function criarElemento(tag, classe, conteudo) {
   return elemento;
 }
 
-console.log(criarElemento('li', 'azul', 'Esse é o conteudo'))
+elementoCriado = criarElemento('li', 'azul', 'Esse é o conteudo')
+
+const lista = document.querySelector('ul')
+lista.appendChild(elementoCriado)
 
 
 //Função criadora de conteudo mas sempre cria h1 com a classe titulo e parametro continua dinamico
@@ -399,3 +402,48 @@ const cursosJS = h1Titulo('Cursos de JS')
 const cursosHTML = h1Titulo('Cursos de HTML')
 
 console.log(cursosJS, cursosHTML)
+
+
+
+/*Objetos*/
+
+//Assign - atribui propriedades de um objeto a outro / substitui valores das propriedades se atribuir uma nova com o mesmo nome
+
+const carro = {
+  rodas: 4,
+  tipo: 'automovel',
+}
+
+const veloster = {
+  portas: 3,
+  motor: 1.6,
+  quantiaCavalos: 128,
+  compradores: 'playboys putos',
+  caracteristica: 'MERDA DE CARRO!'
+}
+
+Object.assign(veloster, carro)
+
+console.log(veloster)
+
+//Alternativa: spread operator
+
+let carro = {
+  rodas: 4,
+  tipo: 'automovel',
+}
+
+let veloster = {
+  portas: 3,
+  motor: 1.6,
+  quantiaCavalos: 128,
+  compradores: 'playboys putos',
+  caracteristica: 'MERDA DE CARRO!'
+}
+
+veloster = {...veloster, carro}
+
+console.log(veloster)
+
+veloster = { ...veloster, portas: 4, carro } //altera propriedades existentes
+
