@@ -298,22 +298,70 @@ arrayRandom.length //retorna quantos parametros tem na função
 
 
 //Call
-const carro = {
-  marca: 'ford',
-  ano: 2020,
+const RpgCharacter = {
+  nome: 'Frei',
+  classe: 'ladino',
+  nivel: 20
 }
 
-function descricaoCarro() {
-  console.log(this.marca + ' ' + this.ano)
+function imprimeConsole() {
+  console.log(`${this.nome} ${this.nivel} ${this.classe}`)
 }
 
-descricaoCarro() //undefined undefined
-descricaoCarro() //undefined undefined
-descricaoCarro.call(carro) // Ford 2020
-descricaoCarro.call({marca: 'Honda', ano: 2015}) // Honda 2015
+imprimeConsole() //undefined undefined undefined
+imprimeConsole.call(RpgCharacter) // Frei 20 ladino
+imprimeConsole.call({nome: 'Frei', nivel: '20', classe: 'ladino'}) // Frei 20 ladino
 
 //Call 2
-function descricaoCarro(velocidade) {
-  console.log(this.marca + ' ' + this.ano + velocidade)
+function imprimeConsole(hp) {
+  console.log(`${this.nome} ${this.classe} ${this.nivel} ${hp}`)
 }
-descricaoCarro.call({marca: 'Honda', ano: 2015}, 100) // Honda 2015 100
+imprimeConsole.call({nome: 'Frei', classe: 'ladino', nivel: 20}, 150) // Frei 20 150
+
+
+//Apply - muito parecido com o metodo Call, voce pode escrever um método que pode ser usado em diferentes objetos, a unica diferença é que o call recebe argumentos separados enquanto o apply recebe argumentos de uma array
+
+Math.max(1, 2, 3, 4, 5) // 5
+
+var numeros = [1, 2, 3, 4, 5]
+
+Math.max(numeros) //NaN
+Math.max.apply(numeros) //-Infinity
+Math.max.apply(null, numeros) // 5
+
+//Apply 2
+var rpgCharacter = {
+  nomeCompleto: function() {
+    return this.primeiroNome + " " + this.segundoNome;
+  }
+}
+var pessoa1 = {
+  primeiroNome: "Frei",
+  segundoNome: "Smith"
+}
+rpgCharacter.nomeCompleto.apply(pessoa1);  // Frei Smith
+
+
+//Bind - funciona de uma maneira diferente do call e do apply, ao invés de executar uma função, este retorna uma nova função. O seu primeiro parâmetro continua recebendo o valor que será atribuído ao this e os demais argumentos serão os parâmetros que definirão os valores atribuídos da primeira função.
+
+
+function sumNumbers(firstNumber, secondNumber) {
+	const sum = this + firstNumber + secondNumber;
+
+	console.log(sum)
+}
+
+const bindResultFunction = sumNumbers.bind(5, 7)
+
+bindResultFunction(5) // 17
+
+//Bind 2, Argumentos comuns
+//Podemos passar argumentos muito usados para uma função e retornar uma nova função
+function imc(altura, peso) {
+  return peso / (altura * altura);
+}
+
+const imc180 = imc.bind(null, 1.80)
+
+imc(1.80, 70) // 21.6
+imc180(70) //21.6
