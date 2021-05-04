@@ -389,3 +389,13 @@ function criarElemento(tag, classe, conteudo) {
 }
 
 console.log(criarElemento('li', 'azul', 'Esse é o conteudo'))
+
+
+//Função criadora de conteudo mas sempre cria h1 com a classe titulo e parametro continua dinamico
+
+const h1Titulo = criarElemento.bind(null, 'h1', 'titulo')
+
+const cursosJS = h1Titulo('Cursos de JS')
+const cursosHTML = h1Titulo('Cursos de HTML')
+
+console.log(cursosJS, cursosHTML)
