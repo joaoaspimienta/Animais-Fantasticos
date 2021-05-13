@@ -19,6 +19,6 @@ if(botaoAbrir && botaoFechar && containerModal){
     botaoAbrir.addEventListener('click', toggleModal)
     botaoFechar.addEventListener('click', toggleModal)
     containerModal.addEventListener('click', cliqueForaModal)
-}
+    }
 }
 
